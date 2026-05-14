@@ -6,9 +6,6 @@
     { "source": "/dashboard", "destination": "/dashboard.html" },
     { "source": "/admin", "destination": "/admin.html" }
   ],
-  "functions": {
-    "api/kora-webhook.js": { "runtime": "nodejs20.x" }
-  },
   "headers": [
     {
       "source": "/(.*)",
