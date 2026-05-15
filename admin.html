@@ -543,7 +543,7 @@
     // ───────────────────────────────────────────────────────────────────────
 
     const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
+    const db  = getFirestore(app, "(default)");
 
     const SESSION_KEY = "glamour_admin_authed";
 
@@ -600,8 +600,13 @@
             const link = snap.exists() ? (snap.data().whatsappLink || "") : "";
             document.getElementById("currentLinkDisplay").textContent = link || "Not set";
             document.getElementById("waLinkInput").value = link;
+            document.getElementById("linkStatus").textContent = "";
         } catch (err) {
-            document.getElementById("currentLinkDisplay").textContent = "Error loading — check Firestore rules";
+            console.error("loadConfig error:", err.code, err.message, err);
+            const detail = err.code ? `[${err.code}] ${err.message}` : err.message || "unknown error";
+            document.getElementById("currentLinkDisplay").textContent = "Error loading";
+            document.getElementById("linkStatus").textContent = detail;
+            document.getElementById("linkStatus").className = "link-status error";
         }
     }
 
@@ -689,7 +694,8 @@
             }).join("");
 
         } catch (err) {
-            tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Failed to load. Check Firestore rules.</td></tr>`;
+            console.error("loadUsers error:", err.code, err.message, err);
+            tbody.innerHTML = `<tr><td colspan="6" class="empty-state">Error: ${err.code || err.message || "unknown"}</td></tr>`;
         }
     }
 
