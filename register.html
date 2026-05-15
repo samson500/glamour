@@ -992,7 +992,7 @@
     // ───────────────────────────────────────────────────────────────────────────
 
     const app       = initializeApp(firebaseConfig);
-    const db        = getFirestore(app);
+    const db        = getFirestore(app, "(default)");
     getAnalytics(app);
 
     const registerForm = document.getElementById("registerForm");
