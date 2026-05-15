@@ -546,6 +546,7 @@
     const db  = getFirestore(app, "(default)");
 
     const SESSION_KEY = "glamour_admin_authed";
+    const CONFIG_DOC  = doc(db, "config", "settings");
 
     // ── Helpers ────────────────────────────────────────────────────────────
     function showToast(msg) {
@@ -592,7 +593,6 @@
     checkSession();
 
     // ── Config (WhatsApp link) ─────────────────────────────────────────────
-    const CONFIG_DOC = doc(db, "config", "settings");
 
     async function loadConfig() {
         try {
