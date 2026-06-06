@@ -922,7 +922,7 @@
                     <h2>Create Your <span>Glamour Account</span></h2>
                     <p class="register-copy">
                         Finish your registration and we will take you straight into your account dashboard.
-                        Your EUR €7 welcome bonus will be added automatically <strong></strong>.
+                        Your welcome bonus will be added automatically <strong></strong>.
                     </p>
 
                     <form id="registerForm">
@@ -946,6 +946,7 @@
                             <select id="plan" class="form-select" required>
                                 <option value="" disabled selected>Choose your plan</option>
                                 <option value="Starter Activation" data-amount="14000">Glam Fee: NGN 14,000 (EUR 7)</option>
+                                <option value="Prime package" data-amount="20000">Prime Package: NGN 20,000 (EUR 10)</option>
                             </select>
                         </div>
 
@@ -962,7 +963,7 @@
                     </form>
 
                     <div class="register-note">
-                        <strong>What happens next?</strong> Fill your details, pay the one-time activation fee, and you'll land straight on your dashboard with a <strong>EUR €7 welcome bonus</strong> already loaded.
+                        <strong>What happens next?</strong> Fill your details, pay the one-time activation fee, and you'll land straight on your dashboard with a <strong>welcome bonus</strong> already loaded.
                     </div>
 
                 </div>
@@ -1024,7 +1025,7 @@
         const email          = document.getElementById("email").value.trim().toLowerCase();
         const fullName       = document.getElementById("fullName").value.trim();
         const username       = document.getElementById("username").value.trim();
-        const amount         = Number(selectedOption.dataset.amount || 14000);
+        const amount         = Number(selectedOption.dataset.amount);
         const reference      = `GLAM-${Date.now()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
 
         setBtn('<i class="fa-solid fa-spinner fa-spin me-2"></i>Opening payment…', true);

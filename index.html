@@ -98,6 +98,11 @@
             background-repeat: no-repeat;
             position: relative;
             overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 0 80px;
         }
 
         .hero-content {
@@ -283,6 +288,45 @@
         .about-image {
             max-width: 85%;
             height: auto;
+        }
+
+        /* --- Packages Section --- */
+        #packages-section {
+            padding: 6rem 0;
+        }
+
+        .packages-intro {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+        }
+
+        .package-showcase-card {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-showcase-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-green-start);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .package-showcase-card img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        .packages-cta {
+            margin-top: 2.5rem;
         }
 
         /* --- Features Section --- */
@@ -803,6 +847,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        margin: 0 auto;
         padding: 60px 20px 40px;
     }
 
@@ -850,6 +896,12 @@
             width: 100%;
             text-align: center;
             padding: 14px 20px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        #hero-section {
+            padding: 0;
         }
     }
 </style>
@@ -990,6 +1042,36 @@
                     <img src="glamour/0q1vltqa.jpeg" alt="Glamour platform banner" class="img-fluid rounded-4 shadow-lg about-image">
                 </a>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Packages Section -->
+<section id="packages-section">
+    <div class="container">
+        <div class="packages-intro text-center" data-aos="fade-up">
+            <h2 class="section-heading mb-3">Our Packages</h2>
+            <p class="section-text mb-0">
+                Explore the package options and pick the one that fits your next step with Glamour.
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-5" data-aos="fade-up">
+                <div class="package-showcase-card">
+                    <img src="glamour/glam.png" alt="Glam package">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="150">
+                <div class="package-showcase-card">
+                    <img src="glamour/prime.png" alt="Prime package">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center packages-cta" data-aos="fade-up" data-aos-delay="200">
+            <a href="register.html" class="btn btn-gradient btn-lg">Register Now</a>
         </div>
     </div>
 </section>
